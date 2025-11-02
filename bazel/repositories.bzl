@@ -12,7 +12,34 @@ def external_http_archive(name, **kwargs):
         **kwargs
     )
 
-def api_dependencies():
+def api_dependencies(bzlmod = False):
+    # Dependencies needed for both WORKSPACE and bzlmod
+    external_http_archive(
+        name = "prometheus_metrics_model",
+        build_file_content = PROMETHEUSMETRICS_BUILD_CONTENT,
+    )
+    external_http_archive(
+        name = "com_github_openzipkin_zipkinapi",
+        build_file_content = ZIPKINAPI_BUILD_CONTENT,
+    )
+    external_http_archive(
+        name = "dev_cel",
+    )
+    external_http_archive(
+        name = "com_github_chrusty_protoc_gen_jsonschema",
+    )
+
+    # WORKSPACE-only dependencies (available in BCR for bzlmod or not needed)
+    if bzlmod:
+        return
+
+    external_http_archive(
+        name = "com_github_bufbuild_buf",
+        build_file_content = BUF_BUILD_CONTENT,
+    )
+    external_http_archive(
+        name = "envoy_toolshed",
+    )
     external_http_archive(
         name = "bazel_skylib",
     )
@@ -31,28 +58,14 @@ def api_dependencies():
         name = "com_github_cncf_xds",
     )
     external_http_archive(
-        name = "prometheus_metrics_model",
-        build_file_content = PROMETHEUSMETRICS_BUILD_CONTENT,
-    )
-    external_http_archive(
         name = "rules_buf",
     )
     external_http_archive(
         name = "rules_proto",
     )
     external_http_archive(
-        name = "com_github_openzipkin_zipkinapi",
-        build_file_content = ZIPKINAPI_BUILD_CONTENT,
-    )
-    external_http_archive(
         name = "opentelemetry_proto",
         build_file_content = OPENTELEMETRY_BUILD_CONTENT,
-    )
-    external_http_archive(
-        name = "dev_cel",
-    )
-    external_http_archive(
-        name = "com_github_chrusty_protoc_gen_jsonschema",
     )
 
 PROMETHEUSMETRICS_BUILD_CONTENT = """
@@ -380,3 +393,19 @@ go_grpc_library(
     ],
 )
 """
+
+BUF_BUILD_CONTENT = """
+filegroup(
+    name = "all",
+    srcs = glob(["**"]),
+    visibility = ["//visibility:public"],
+)
+"""
+
+# Bzlmod extension for non-BCR dependencies  
+def _non_module_deps_impl(module_ctx):
+    api_dependencies(bzlmod = True)
+
+non_module_deps = module_extension(
+    implementation = _non_module_deps_impl,
+)
