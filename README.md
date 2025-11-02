@@ -16,6 +16,7 @@ The API tree can be found at two locations:
 
 # Further API reading
 
+* [Bazel build system and bzlmod support](BAZEL.md)
 * [API style guide](STYLE.md)
 * [API versioning guide](API_VERSIONING.md)
 * [API overview for users](https://www.envoyproxy.io/docs/envoy/latest/configuration/overview/overview)
