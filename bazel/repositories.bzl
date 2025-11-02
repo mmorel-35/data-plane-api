@@ -404,11 +404,3 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 """
-
-# Bzlmod extension for non-BCR dependencies  
-def _non_module_deps_impl(module_ctx):
-    api_dependencies(bzlmod = True)
-
-non_module_deps = module_extension(
-    implementation = _non_module_deps_impl,
-)
