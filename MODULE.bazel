@@ -18,6 +18,7 @@ bazel_dep(name = "abseil-cpp", version = "20250127.1", repo_name = "com_google_a
 bazel_dep(name = "bazel_skylib", version = "1.8.2")
 bazel_dep(name = "gazelle", version = "0.45.0", repo_name = "bazel_gazelle")
 bazel_dep(name = "googleapis", version = "0.0.0-20241220-5e258e33.bcr.1", repo_name = "com_google_googleapis")
+bazel_dep(name = "googleapis-cc", version = "1.0.0")
 bazel_dep(name = "googletest", version = "1.17.0", repo_name = "com_google_googletest")
 bazel_dep(name = "grpc", version = "1.66.0.bcr.2", repo_name = "com_github_grpc_grpc")
 bazel_dep(name = "opencensus-proto", version = "0.4.1", repo_name = "opencensus_proto")
@@ -37,7 +38,6 @@ switched_rules = use_extension("@com_google_googleapis//:extensions.bzl", "switc
 switched_rules.use_languages(
     cc = True,
     go = True,
-    python = True,
 )
 
 # Non-BCR dependencies extension
