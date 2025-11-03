@@ -51,7 +51,7 @@ switched_rules.use_languages(
 
 # Non-BCR dependencies extension
 # These dependencies are not yet available in BCR or require custom build files
-non_module_deps = use_extension("//bazel:deps.bzl", "non_module_deps")
+non_module_deps = use_extension("//bazel:extensions.bzl", "non_module_deps")
 use_repo(
     non_module_deps,
     "com_github_chrusty_protoc_gen_jsonschema",
