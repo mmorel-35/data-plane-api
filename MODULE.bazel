@@ -16,6 +16,7 @@ module(
 # Core dependencies from Bazel Central Registry
 bazel_dep(name = "abseil-cpp", version = "20250127.1", repo_name = "com_google_absl")
 bazel_dep(name = "bazel_skylib", version = "1.8.2")
+bazel_dep(name = "cel-spec", version = "0.24.0", repo_name = "dev_cel")
 bazel_dep(name = "gazelle", version = "0.45.0", repo_name = "bazel_gazelle")
 bazel_dep(name = "googleapis", version = "0.0.0-20241220-5e258e33.bcr.1", repo_name = "com_google_googleapis")
 bazel_dep(name = "googleapis-cc", version = "1.0.0")
@@ -54,7 +55,6 @@ non_module_deps = use_extension("//bazel:deps.bzl", "non_module_deps")
 use_repo(
     non_module_deps,
     "com_github_chrusty_protoc_gen_jsonschema",
-    "dev_cel",
     "envoy_toolshed",
     "prometheus_metrics_model",
 )

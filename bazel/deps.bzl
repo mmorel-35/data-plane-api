@@ -24,7 +24,6 @@ non_module_deps = module_extension(
     
     This extension creates the following repositories:
     - prometheus_metrics_model: Prometheus client model
-    - dev_cel: Common Expression Language specification
     - com_github_chrusty_protoc_gen_jsonschema: Proto to JSON schema compiler
     - envoy_toolshed: Tooling and libraries for Envoy development
     
