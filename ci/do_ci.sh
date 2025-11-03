@@ -11,6 +11,9 @@ export NUM_CPUS=8
 
 . "$(dirname "$0")"/build_setup.sh
 
+# Ensure we're in the source directory where MODULE.bazel is located
+cd "${ENVOY_SRCDIR}"
+
 echo "building using ${NUM_CPUS} CPUs"
 
 if [[ "$1" == "bazel.test" ]]; then

@@ -1,0 +1,5 @@
+# Enable bzlmod for modern dependency management with MODULE.bazel
+common --enable_bzlmod
+
+# Build settings
+build --incompatible_strict_action_env
