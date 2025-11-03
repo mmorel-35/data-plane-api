@@ -37,10 +37,6 @@ def api_dependencies(bzlmod = False):
         build_file_content = ZIPKINAPI_BUILD_CONTENT,
     )
     external_http_archive(
-        name = "com_github_bufbuild_buf",
-        build_file_content = BUF_BUILD_CONTENT,
-    )
-    external_http_archive(
         name = "envoy_toolshed",
     )
     external_http_archive(
@@ -394,13 +390,5 @@ go_grpc_library(
     embed = [
         ":trace_proto_go",
     ],
-)
-"""
-
-BUF_BUILD_CONTENT = """
-filegroup(
-    name = "all",
-    srcs = glob(["**"]),
-    visibility = ["//visibility:public"],
 )
 """
