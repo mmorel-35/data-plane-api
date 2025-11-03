@@ -1,6 +1,5 @@
 bazel-*
+MODULE.bazel.lock
 *.pyc
 build_docs/
 generated/
-MODULE.bazel.lock
-MODULE.bazel.bak
