@@ -14,7 +14,7 @@ import tap2pcap
 # a golden output file for the tshark dump. Since we run tap2pcap in a
 # subshell with a limited environment, the inferred time zone should be UTC.
 if __name__ == '__main__':
-    srcdir = os.path.join(os.getenv('TEST_SRCDIR'), 'envoy_api')
+    srcdir = os.path.join(os.getenv('TEST_SRCDIR'), '_main')
     tap_path = os.path.join(srcdir, 'tools/data/tap2pcap_h2_ipv4.pb_text')
     expected_path = os.path.join(srcdir, 'tools/data/tap2pcap_h2_ipv4.txt')
     pcap_path = os.path.join(os.getenv('TEST_TMPDIR'), 'generated.pcap')
