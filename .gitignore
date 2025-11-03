@@ -3,3 +3,4 @@ bazel-*
 build_docs/
 generated/
 MODULE.bazel.lock
+MODULE.bazel.bak

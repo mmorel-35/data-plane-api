@@ -3,7 +3,9 @@ module(
     version = "0.0.0-dev",
 )
 
-# Version overrides to ensure compatibility
+# Version overrides to ensure compatibility between grpc and googleapis
+# grpc 1.72.0 depends on envoy_api BCR module which has a different googleapis version
+# We override to use the version that grpc itself expects
 single_version_override(
     module_name = "googleapis",
     version = "0.0.0-20240819-fe8ba054a",
@@ -25,7 +27,6 @@ bazel_dep(name = "bazel_skylib", version = "1.8.2")
 bazel_dep(name = "cel-spec", version = "0.24.0", repo_name = "dev_cel")
 bazel_dep(name = "gazelle", version = "0.45.0", repo_name = "bazel_gazelle")
 bazel_dep(name = "googleapis", version = "0.0.0-20240819-fe8ba054a", repo_name = "com_google_googleapis")
-bazel_dep(name = "googleapis-cc", version = "1.0.0")
 bazel_dep(name = "grpc", version = "1.66.0.bcr.2", repo_name = "com_github_grpc_grpc")
 bazel_dep(name = "opencensus-proto", version = "0.4.1", repo_name = "opencensus_proto")
 bazel_dep(name = "opentelemetry-proto", version = "1.8.0", repo_name = "opentelemetry_proto")
