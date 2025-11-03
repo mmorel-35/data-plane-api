@@ -20,7 +20,6 @@ bazel_dep(name = "cel-spec", version = "0.24.0", repo_name = "dev_cel")
 bazel_dep(name = "gazelle", version = "0.45.0", repo_name = "bazel_gazelle")
 bazel_dep(name = "googleapis", version = "0.0.0-20241220-5e258e33.bcr.1", repo_name = "com_google_googleapis")
 bazel_dep(name = "googleapis-cc", version = "1.0.0")
-bazel_dep(name = "googletest", version = "1.17.0", repo_name = "com_google_googletest")
 bazel_dep(name = "grpc", version = "1.66.0.bcr.2", repo_name = "com_github_grpc_grpc")
 bazel_dep(name = "opencensus-proto", version = "0.4.1", repo_name = "opencensus_proto")
 bazel_dep(name = "opentelemetry-proto", version = "1.8.0", repo_name = "opentelemetry_proto")
@@ -33,6 +32,9 @@ bazel_dep(name = "rules_proto", version = "7.1.0")
 bazel_dep(name = "rules_python", version = "1.4.1")
 bazel_dep(name = "xds", version = "0.0.0-20240423-555b57e", repo_name = "com_github_cncf_xds")
 bazel_dep(name = "zipkin-api", version = "1.0.0", repo_name = "com_github_openzipkin_zipkinapi")
+
+# Test dependencies from Bazel Central Registry
+bazel_dep(name = "googletest", version = "1.17.0", dev_dependency = True, repo_name = "com_google_googletest")
 
 # Go SDK and toolchain configuration
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")

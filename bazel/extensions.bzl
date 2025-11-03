@@ -7,11 +7,11 @@ load(":repositories.bzl", "api_dependencies")
 
 def _non_module_deps_impl(module_ctx):
     """Implementation for non_module_deps extension.
-    
+
     This extension calls api_dependencies(bzlmod=True) which creates repositories
     not in BCR. It safely coexists with BCR deps because envoy_http_archive
     checks native.existing_rules() before creating repositories.
-    
+
     Args:
         module_ctx: Module extension context
     """
